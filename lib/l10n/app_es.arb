@@ -1,0 +1,21 @@
+{
+  "home": "Inicio",
+  "favorites": "Favoritos",
+  "nFavorites": "{count, plural, =0{No tienes favoritos aún} =1{Tienes 1 favorito} other{Tienes {count} favoritos}}",
+  "@nFavorites": {
+    "description": "How much favorites you have",
+    "value": {
+      "type": "num"
+    }
+  },
+  "settings": "Ajustes",
+  "english": "Ingles",
+  "spanish": "Español",
+  "language": "Idioma",
+  "like": "Me gusta",
+  "next": "Siguiente",
+  "helloWorld": "¡Hola Mundo!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}
