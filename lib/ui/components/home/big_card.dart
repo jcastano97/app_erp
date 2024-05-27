@@ -1,13 +1,12 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
 class BigCard extends StatelessWidget {
   const BigCard({
     super.key,
-    required this.pair,
+    required this.name,
   });
 
-  final WordPair pair;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +30,12 @@ class BigCard extends StatelessWidget {
       child: Card(
         elevation: 10,
         color: theme.colorScheme.primary,
-        key: ValueKey<String>(pair.asLowerCase),
+        key: ValueKey<String>(name),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Text(
-            pair.asLowerCase,
+            name,
             style: style,
-            semanticsLabel: "${pair.first} ${pair.second}",
           ),
         ),
       ),

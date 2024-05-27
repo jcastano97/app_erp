@@ -1,10 +1,10 @@
 class LanguageGlobalVar {
   static String version = "version";
   static String home = "home";
-  static String favorites = "favorites";
-  static String noFavorites = "no_favorites";
-  static String oneFavorites = "one_favorites";
-  static String multipleFavorites = "multiple_favorites";
+  static String product = "product";
+  static String noProducts = "no_products";
+  static String oneProduct = "one_product";
+  static String multipleProducts = "multiple_products";
   static String settings = "settings";
   static String english = "english";
   static String spanish = "spanish";
@@ -14,4 +14,6 @@ class LanguageGlobalVar {
   static String darkMode = "dark_mode";
   static String yes = "yes";
   static String no = "no";
+  static String modules = "modules";
+  static String inventory = "inventory";
 }

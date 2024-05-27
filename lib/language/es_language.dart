@@ -4,10 +4,10 @@ class EsLanguage {
   Map<String, String> esLanguage = {
     LanguageGlobalVar.version: 'Versión: @version',
     LanguageGlobalVar.home: "Inicio",
-    LanguageGlobalVar.favorites: "Favoritos",
-    LanguageGlobalVar.noFavorites: "No tienes favoritos aún",
-    LanguageGlobalVar.oneFavorites: "Tienes 1 favorito",
-    LanguageGlobalVar.multipleFavorites: "Tienes @count favoritos",
+    LanguageGlobalVar.product: "Producto",
+    LanguageGlobalVar.noProducts: "No tienes productos aún",
+    LanguageGlobalVar.oneProduct: "Tienes 1 producto",
+    LanguageGlobalVar.multipleProducts: "Tienes @count productos",
     LanguageGlobalVar.settings: "Ajustes",
     LanguageGlobalVar.english: "Ingles",
     LanguageGlobalVar.spanish: "Español",
@@ -17,5 +17,7 @@ class EsLanguage {
     LanguageGlobalVar.darkMode: "Modo oscuro",
     LanguageGlobalVar.yes: "Sí",
     LanguageGlobalVar.no: "No",
+    LanguageGlobalVar.modules: "Modulos",
+    LanguageGlobalVar.inventory: "Inventario",
   };
 }

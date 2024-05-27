@@ -4,12 +4,12 @@ import 'package:get_storage/get_storage.dart';
 
 import '../utils/WordPairUtil.dart';
 
-class HomeController extends GetxController {
+class InventoryController extends GetxController {
   final navigationSelectedIndex = 0.obs;
   final pair = WordPair.random().obs;
   late final favorites = <WordPair>[].obs;
 
-  HomeController() {
+  InventoryController() {
     if (GetStorage().hasData('favorites')) {
       favorites.value = WordPairUtil.fromJson(GetStorage().read('favorites'));
     }

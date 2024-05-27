@@ -4,10 +4,9 @@ class EnLanguage {
   Map<String, String> enLanguage = {
     LanguageGlobalVar.version: 'Version: @version',
     LanguageGlobalVar.home: "Home",
-    LanguageGlobalVar.favorites: "Favorites",
-    LanguageGlobalVar.noFavorites: "No favorites yet",
-    LanguageGlobalVar.oneFavorites: "You have 1 favorite",
-    LanguageGlobalVar.multipleFavorites: "You have @count favorites",
+    LanguageGlobalVar.noProducts: "No products yet",
+    LanguageGlobalVar.oneProduct: "You have 1 product",
+    LanguageGlobalVar.multipleProducts: "You have @count products",
     LanguageGlobalVar.settings: "Settings",
     LanguageGlobalVar.english: "English",
     LanguageGlobalVar.spanish: "Spanish",
@@ -17,5 +16,7 @@ class EnLanguage {
     LanguageGlobalVar.darkMode: "Dark mode",
     LanguageGlobalVar.yes: "Yes",
     LanguageGlobalVar.no: "No",
+    LanguageGlobalVar.modules: "Modules",
+    LanguageGlobalVar.inventory: "Inventory",
   };
 }

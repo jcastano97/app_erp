@@ -1,15 +1,15 @@
 import 'package:app/language/language.dart';
 import 'package:app/routes/app_pages.dart';
-import 'package:app/service/settings_service.dart';
+import 'package:app/service/setting_service.dart';
 import 'package:app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 Future<void> main() async {
   print("main");
-  Get.put(await SettingsService().init());
+  Get.put(await SettingService().init());
   WidgetsFlutterBinding.ensureInitialized();
-  SettingsService settingsService = Get.find<SettingsService>();
+  SettingService settingsService = Get.find<SettingService>();
 
   runApp(GetMaterialApp(
     title: 'App ERP',
@@ -21,7 +21,7 @@ Future<void> main() async {
     theme: AppTheme.light,
     darkTheme: AppTheme.dark,
     themeMode: ThemeMode.system,
-    defaultTransition: Transition.native,
+    defaultTransition: Transition.fadeIn,
     getPages: AppPages.pages,
   ));
 }
