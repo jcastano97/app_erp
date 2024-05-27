@@ -11,4 +11,7 @@ class LanguageGlobalVar {
   static String like = "like";
   static String next = "next";
   static String language = "language";
+  static String darkMode = "dark_mode";
+  static String yes = "yes";
+  static String no = "no";
 }

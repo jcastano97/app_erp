@@ -11,15 +11,7 @@ class SplashController extends GetxController with StateMixin<String> {
   }
 
   @override
-  void onInit() {
-    print('${DateTime.now()}');
-    print("onInit");
-    super.onInit();
-  }
-
-  @override
   void onReady() {
-    print("onReady");
     super.onReady();
     continueSplash();
   }
@@ -27,7 +19,7 @@ class SplashController extends GetxController with StateMixin<String> {
   void continueSplash() async {
     change(null, status: RxStatus.loading());
     try {
-      await 3.delay();
+      await 1.delay();
       change("Continue splash", status: RxStatus.success());
       Get.offAllNamed(Routes.HOME);
     } catch (er) {

@@ -1,4 +1,5 @@
 import 'package:app/language/language_global_var.dart';
+import 'package:app/ui/components/styled_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +16,7 @@ class FavoritesPage extends StatelessWidget {
 
     if (controller.favorites.isEmpty) {
       return Center(
-        child: Text(LanguageGlobalVar.noFavorites.tr),
+        child: StyledText.headlineLarge(LanguageGlobalVar.noFavorites.tr),
       );
     }
     return Obx(
@@ -23,7 +24,7 @@ class FavoritesPage extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(20),
-            child: Text(controller.favorites.length == 1
+            child: StyledText.headlineLarge(controller.favorites.length == 1
                 ? LanguageGlobalVar.oneFavorites.tr
                 : LanguageGlobalVar.multipleFavorites.trParams(
                     {'count': controller.favorites.length.toString()})),

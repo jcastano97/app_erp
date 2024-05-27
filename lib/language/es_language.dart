@@ -14,5 +14,8 @@ class EsLanguage {
     LanguageGlobalVar.like: "Me gusta",
     LanguageGlobalVar.next: "Siguiente",
     LanguageGlobalVar.language: "Lenguaje",
+    LanguageGlobalVar.darkMode: "Modo oscuro",
+    LanguageGlobalVar.yes: "Sí",
+    LanguageGlobalVar.no: "No",
   };
 }
