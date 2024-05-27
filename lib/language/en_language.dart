@@ -14,5 +14,8 @@ class EnLanguage {
     LanguageGlobalVar.like: "Like",
     LanguageGlobalVar.next: "Next",
     LanguageGlobalVar.language: "Language",
+    LanguageGlobalVar.darkMode: "Dark mode",
+    LanguageGlobalVar.yes: "Yes",
+    LanguageGlobalVar.no: "No",
   };
 }

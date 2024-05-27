@@ -1,7 +1,9 @@
+import 'package:app/ui/components/styled_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../language/language_global_var.dart';
+import '../../../service/settings_service.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({
@@ -10,6 +12,7 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsService settingsService = Get.find<SettingsService>();
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -18,7 +21,7 @@ class SettingsPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("${LanguageGlobalVar.language.tr}: "),
+              StyledText.labelLarge("${LanguageGlobalVar.language.tr}: "),
               SizedBox(
                 width: 10,
               ),
@@ -29,7 +32,7 @@ class SettingsPage extends StatelessWidget {
                     )
                   : ElevatedButton(
                       onPressed: () {
-                        Get.updateLocale(Locale('en'));
+                        settingsService.setLanguageCode('en');
                       },
                       child: Text(LanguageGlobalVar.english.tr),
                     ),
@@ -43,11 +46,50 @@ class SettingsPage extends StatelessWidget {
                     )
                   : ElevatedButton(
                       onPressed: () {
-                        Get.updateLocale(Locale('es'));
+                        settingsService.setLanguageCode('es');
                       },
                       child: Text(LanguageGlobalVar.spanish.tr),
                     ),
             ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                StyledText.labelLarge("${LanguageGlobalVar.darkMode.tr}: "),
+                SizedBox(
+                  width: 10,
+                ),
+                settingsService.darkMode.value
+                    ? OutlinedButton(
+                        onPressed: () {},
+                        child: Text(LanguageGlobalVar.yes.tr),
+                      )
+                    : ElevatedButton(
+                        onPressed: () {
+                          settingsService.toggleDarkMode();
+                        },
+                        child: Text(LanguageGlobalVar.yes.tr),
+                      ),
+                SizedBox(
+                  width: 10,
+                ),
+                !settingsService.darkMode.value
+                    ? OutlinedButton(
+                        onPressed: () {},
+                        child: Text(LanguageGlobalVar.no.tr),
+                      )
+                    : ElevatedButton(
+                        onPressed: () {
+                          settingsService.toggleDarkMode();
+                        },
+                        child: Text(LanguageGlobalVar.no.tr),
+                      ),
+              ],
+            ),
           ),
         ],
       ),

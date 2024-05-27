@@ -4,17 +4,17 @@ import 'package:flutter/services.dart';
 class AppTheme {
   static ThemeData light = ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-    scaffoldBackgroundColor: Colors.black,
+    colorSchemeSeed: Colors.blue,
+    scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
       displayLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
       ),
       headlineLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
       ),
       labelLarge: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
       ),
     ),
     appBarTheme: const AppBarTheme(
@@ -36,8 +36,21 @@ class AppTheme {
   );
   static ThemeData dark = ThemeData(
     useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+    colorSchemeSeed: Colors.green,
     scaffoldBackgroundColor: Colors.black,
+    cardColor: Colors.green,
+    navigationRailTheme: NavigationRailThemeData(
+      backgroundColor: Colors.white10,
+      selectedLabelTextStyle: TextStyle(
+        color: Colors.white30,
+      ),
+      unselectedLabelTextStyle: TextStyle(
+        color: Colors.white,
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+    ),
     textTheme: TextTheme(
       displayLarge: TextStyle(
         color: Colors.white,
