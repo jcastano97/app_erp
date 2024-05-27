@@ -11,15 +11,7 @@ class SplashController extends GetxController with StateMixin<String> {
   }
 
   @override
-  void onInit() {
-    print('${DateTime.now()}');
-    print("onInit");
-    super.onInit();
-  }
-
-  @override
   void onReady() {
-    print("onReady");
     super.onReady();
     continueSplash();
   }

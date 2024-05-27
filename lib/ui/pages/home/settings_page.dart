@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../language/language_global_var.dart';
 
@@ -30,6 +31,7 @@ class SettingsPage extends StatelessWidget {
                   : ElevatedButton(
                       onPressed: () {
                         Get.updateLocale(Locale('en'));
+                        GetStorage().write('languageCode', 'en');
                       },
                       child: Text(LanguageGlobalVar.english.tr),
                     ),
@@ -44,6 +46,7 @@ class SettingsPage extends StatelessWidget {
                   : ElevatedButton(
                       onPressed: () {
                         Get.updateLocale(Locale('es'));
+                        GetStorage().write('languageCode', 'es');
                       },
                       child: Text(LanguageGlobalVar.spanish.tr),
                     ),
