@@ -43,7 +43,7 @@ class HomePage extends GetView<HomeController> {
             ),
             Expanded(
               child: Container(
-                color: Theme.of(context).colorScheme.primaryContainer,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 child: Obx(
                   () => getNavigationWidget(
                       controller.navigationSelectedIndex.value),
