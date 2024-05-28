@@ -12,7 +12,7 @@ final class CommonPage extends StatelessWidget {
   List<NavigationRailDestination> createDestinations() {
     var destinations = <NavigationRailDestination>[];
     for (NavigationItem item in SettingService.navigationItemIndex) {
-      var navigationRail = new NavigationRailDestination(
+      var navigationRail = NavigationRailDestination(
         icon: Icon(item.icon),
         label: Text(item.label),
       );

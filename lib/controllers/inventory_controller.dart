@@ -1,42 +1,36 @@
-import 'package:english_words/english_words.dart';
+import 'package:app/database/database.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-
-import '../utils/WordPairUtil.dart';
 
 class InventoryController extends GetxController {
-  final navigationSelectedIndex = 0.obs;
-  final pair = WordPair.random().obs;
-  late final favorites = <WordPair>[].obs;
+  final database = Get.find<AppDatabase>();
 
-  InventoryController() {
-    if (GetStorage().hasData('favorites')) {
-      favorites.value = WordPairUtil.fromJson(GetStorage().read('favorites'));
-    }
+  final taskData = <TodoItem>[].obs;
+  late TextEditingController addTaskController;
+  @override
+  void onInit() {
+    addTaskController = TextEditingController();
+    _getData();
+    super.onInit();
   }
 
-  void getNext() {
-    pair.value = WordPair.random();
+  void _getData() async {
+    taskData.value = await database.select(database.todoItems).get();
   }
 
-  void toggleFavorite() {
-    print("toggleFavorite");
-    if (favorites.contains(pair.value)) {
-      favorites.remove(pair.value);
-    } else {
-      favorites.add(pair.value);
-    }
-    GetStorage().write('favorites', WordPairUtil.toJson(favorites));
+  void addData() async {
+    await database.into(database.todoItems).insert(TodoItemsCompanion.insert(
+          title: addTaskController.text,
+          content: '',
+        ));
+    taskData.value = await database.select(database.todoItems).get();
+    addTaskController.clear();
   }
 
-  void removeFavorite(WordPair pair) {
-    if (favorites.contains(pair)) {
-      favorites.remove(pair);
-      GetStorage().write('favorites', WordPairUtil.toJson(favorites));
-    }
-  }
-
-  void setNavigationSelectedIndex(int value) {
-    navigationSelectedIndex.value = value;
+  void deleteTask(int id) async {
+    var deleteStatement = await database.delete(database.todoItems)
+      ..where((t) => t.id.equals(id));
+    await deleteStatement.go();
+    taskData.removeWhere((element) => element.id == id);
   }
 }

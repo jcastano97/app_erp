@@ -5,10 +5,13 @@ import 'package:app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'database/database.dart';
+
 Future<void> main() async {
   print("main");
   Get.put(await SettingService().init());
   WidgetsFlutterBinding.ensureInitialized();
+  Get.put(AppDatabase());
   SettingService settingsService = Get.find<SettingService>();
 
   runApp(GetMaterialApp(
