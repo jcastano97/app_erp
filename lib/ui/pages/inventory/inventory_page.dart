@@ -35,7 +35,7 @@ class InventoryPage extends GetView<InventoryController> {
                       trailing: IconButton(
                           icon: Icon(Icons.delete),
                           onPressed: () => controller
-                              .deleteTask(controller.taskData[index].id!)),
+                              .deleteTask(controller.taskData[index].id)),
                     ),
                   )),
             ),

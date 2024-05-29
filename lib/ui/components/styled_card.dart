@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BigCard extends StatelessWidget {
-  const BigCard({
+class StyledCard extends StatelessWidget {
+  final TextStyle? textStyle;
+  final Color? color;
+  StyledCard({
     super.key,
     required this.name,
+    this.textStyle,
+    this.color,
   });
 
   final String name;
@@ -11,9 +15,10 @@ class BigCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final style = theme.textTheme.displayMedium!.copyWith(
-      color: theme.colorScheme.onPrimary,
-    );
+    final style = textStyle ??
+        theme.textTheme.displayLarge!.copyWith(
+          color: theme.colorScheme.onPrimary,
+        );
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 500),
       transitionBuilder: (Widget child, Animation<double> animation) {
@@ -29,7 +34,7 @@ class BigCard extends StatelessWidget {
       },
       child: Card(
         elevation: 10,
-        color: theme.colorScheme.primary,
+        color: color ?? theme.colorScheme.primary,
         key: ValueKey<String>(name),
         child: Padding(
           padding: const EdgeInsets.all(20.0),

@@ -28,7 +28,7 @@ class InventoryController extends GetxController {
   }
 
   void deleteTask(int id) async {
-    var deleteStatement = await database.delete(database.todoItems)
+    var deleteStatement = database.delete(database.todoItems)
       ..where((t) => t.id.equals(id));
     await deleteStatement.go();
     taskData.removeWhere((element) => element.id == id);

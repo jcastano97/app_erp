@@ -1,9 +1,9 @@
 import 'package:app/language/language_global_var.dart';
 import 'package:app/routes/app_pages.dart';
 import 'package:app/service/setting_service.dart';
-import 'package:app/ui/components/home/big_card.dart';
+import 'package:app/ui/components/styled_card.dart';
 import 'package:app/ui/components/styled_text.dart';
-import 'package:app/ui/pages/erp/common_page.dart';
+import 'package:app/ui/pages/common_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,12 +25,12 @@ class HomePage extends GetView {
         GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {
-            settingService.goTo(Routes.INVENTORY);
+            settingService.goTo(Routes.inventory);
           },
-          child: BigCard(
+          child: StyledCard(
             name: LanguageGlobalVar.inventory.tr,
           ),
-        )
+        ),
       ],
     ));
   }

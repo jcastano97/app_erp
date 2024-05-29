@@ -10,15 +10,18 @@ class SettingService extends GetxService {
   late final RxString languageCode = Const.defaultLanguage.obs;
   late final RxBool darkMode = Const.defaultDarkMode.obs;
   final navigationSelectedIndex = 0.obs;
+
   static List<NavigationItem> navigationItemIndex = [
     NavigationItem(
-        route: Routes.HOME, icon: Icons.home, label: LanguageGlobalVar.home.tr),
+        route: Routes.home, icon: Icons.home, label: LanguageGlobalVar.home.tr),
     NavigationItem(
-        route: Routes.INVENTORY,
+        route: Routes.inventory,
         icon: Icons.folder_special,
         label: LanguageGlobalVar.inventory.tr),
     NavigationItem(
-        route: Routes.SETTING,
+        route: Routes.gemini, icon: Icons.import_contacts, label: 'Gemini'),
+    NavigationItem(
+        route: Routes.setting,
         icon: Icons.settings,
         label: LanguageGlobalVar.settings.tr),
   ];
