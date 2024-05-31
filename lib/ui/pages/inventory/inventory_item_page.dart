@@ -1,10 +1,10 @@
-import 'package:app/controllers/inventory_controller.dart';
+import 'package:app/controllers/inventory_item_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../common_page.dart';
 
-class InventoryPage extends GetView<InventoryController> {
+class InventoryItemPage extends GetView<InventoryItemController> {
   @override
   Widget build(BuildContext context) {
     return CommonPage(
@@ -17,8 +17,8 @@ class InventoryPage extends GetView<InventoryController> {
               children: <Widget>[
                 Expanded(
                     child: TextFormField(
-                  controller: controller.addTaskController,
-                  decoration: InputDecoration(hintText: "Enter a task"),
+                  controller: controller.nameController,
+                  decoration: InputDecoration(hintText: "Enter a inventory"),
                 )),
                 IconButton(
                     icon: Icon(Icons.add),
@@ -29,13 +29,13 @@ class InventoryPage extends GetView<InventoryController> {
             ),
             Expanded(
               child: Obx(() => ListView.builder(
-                    itemCount: controller.taskData.length,
+                    itemCount: controller.data.length,
                     itemBuilder: (context, index) => ListTile(
-                      leading: Text(controller.taskData[index].title),
+                      leading: Text(controller.data[index].name),
                       trailing: IconButton(
                           icon: Icon(Icons.delete),
-                          onPressed: () => controller
-                              .deleteTask(controller.taskData[index].id)),
+                          onPressed: () =>
+                              controller.deleteTask(controller.data[index].id)),
                     ),
                   )),
             ),

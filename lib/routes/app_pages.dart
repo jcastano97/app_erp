@@ -1,11 +1,11 @@
 import 'package:app/bindings/home/gemini_binding.dart';
 import 'package:app/bindings/setting_binding.dart';
 import 'package:app/ui/pages/gemini/gemini_page.dart';
-import 'package:app/ui/pages/inventory/inventory_page.dart';
+import 'package:app/ui/pages/inventory/inventory_item_page.dart';
 import 'package:app/ui/pages/setting_page.dart';
 import 'package:get/get.dart';
 
-import '../bindings/inventory_binding.dart';
+import '../bindings/inventory_item_binding.dart';
 import '../bindings/splash_binding.dart';
 import '../ui/pages/home_page.dart';
 import '../ui/pages/splash/splash_page.dart';
@@ -25,8 +25,8 @@ abstract class AppPages {
         binding: SettingBinding()),
     GetPage(
         name: Routes.inventory,
-        page: () => InventoryPage(),
-        binding: InventoryBinding()),
+        page: () => InventoryItemPage(),
+        binding: InventoryItemBinding()),
     GetPage(
         name: Routes.gemini,
         page: () => GeminiPage(),
