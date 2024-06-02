@@ -3,7 +3,6 @@ import 'package:drift/drift.dart';
 import 'api_table.dart';
 import 'view_table.dart';
 
-@DataClassName("Permission")
 class PermissionTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn? get name => text().nullable()();

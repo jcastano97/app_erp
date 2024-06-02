@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 final class CommonPage extends StatelessWidget {
+  final settingService = Get.find<SettingService>();
   late final Widget _child;
 
   CommonPage({required Widget child}) {
@@ -24,7 +25,7 @@ final class CommonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SettingService settingService = Get.find<SettingService>();
+    double screenHeight = MediaQuery.of(context).size.height;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         body: Row(
@@ -42,9 +43,17 @@ final class CommonPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Container(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                child: _child,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: screenHeight),
+                child: SingleChildScrollView(
+                  controller: settingService.scrollController,
+                  physics: const ClampingScrollPhysics(),
+                  padding: const EdgeInsets.only(right: 15),
+                  child: Container(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    child: _child,
+                  ),
+                ),
               ),
             ),
           ],

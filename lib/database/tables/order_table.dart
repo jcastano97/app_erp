@@ -3,7 +3,6 @@ import 'package:drift/drift.dart';
 import 'client_table.dart';
 import 'employee_table.dart';
 
-@DataClassName("Order")
 class OrderTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   DateTimeColumn? get date => dateTime().nullable()();

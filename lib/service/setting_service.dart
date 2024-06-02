@@ -10,6 +10,7 @@ class SettingService extends GetxService {
   late final RxString languageCode = Const.defaultLanguage.obs;
   late final RxBool darkMode = Const.defaultDarkMode.obs;
   final navigationSelectedIndex = 0.obs;
+  final ScrollController scrollController = ScrollController();
 
   static List<NavigationItem> navigationItemIndex = [
     NavigationItem(

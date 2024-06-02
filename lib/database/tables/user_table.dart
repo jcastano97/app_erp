@@ -2,7 +2,6 @@ import 'package:drift/drift.dart';
 
 import 'contact_table.dart';
 
-@DataClassName("User")
 class UserTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get username => text()();

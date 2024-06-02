@@ -2,7 +2,6 @@ import 'package:app/database/tables/address_table.dart';
 import 'package:app/database/tables/phone_table.dart';
 import 'package:drift/drift.dart';
 
-@DataClassName("Company")
 class CompanyTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text()();

@@ -3,7 +3,6 @@ import 'package:drift/drift.dart';
 import 'address_table.dart';
 import 'phone_table.dart';
 
-@DataClassName("Contact")
 class ContactTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn? get firstName => text().nullable()();

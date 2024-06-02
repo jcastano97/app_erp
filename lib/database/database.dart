@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:app/database/daos/inventory_item_dao.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:drift_dev/api/migrations.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:sqlite3/sqlite3.dart';
@@ -48,20 +48,26 @@ part 'database.g.dart';
   RoleTable,
   UserTable,
   ViewTable
+], daos: [
+  InventoryItemDao,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   @override
   MigrationStrategy get migration {
+    print('migration');
     return MigrationStrategy(
       onCreate: (m) async {
+        print('onCreate');
         m.createAll();
+        print('END onCreate');
       },
       onUpgrade: (m, from, to) async {
+        print('onUpgrade');
         await customStatement('PRAGMA foreign_keys = OFF');
         // create missing tables that were missing in version 1
         if (from <= 1) {
@@ -72,11 +78,21 @@ class AppDatabase extends _$AppDatabase {
           await m.createTable(companyTable);
           await m.createTable(contactTable);
           await m.createTable(countryTable);
+          await m.createTable(employeeTable);
+          await m.createTable(inventoryItemOrderTable);
+          await m.createTable(inventoryItemTable);
+          await m.createTable(orderTable);
+          await m.createTable(permissionRoleTable);
+          await m.createTable(permissionTable);
+          await m.createTable(phoneTable);
+          await m.createTable(providerTable);
+          await m.createTable(roleTable);
+          await m.createTable(userTable);
+          await m.createTable(viewTable);
         }
       },
       beforeOpen: (details) async {
         await customStatement('PRAGMA foreign_keys = ON');
-        await validateDatabaseSchema();
       },
     );
   }

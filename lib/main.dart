@@ -14,8 +14,6 @@ Future<void> main() async {
   Get.put(await GeminiService().init());
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(AppDatabase());
-  //AppDatabase appDatabase = Get.find<AppDatabase>();
-  //appDatabase.deleteEverything();
   SettingService settingsService = Get.find<SettingService>();
 
   runApp(GetMaterialApp(

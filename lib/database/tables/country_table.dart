@@ -1,6 +1,5 @@
 import 'package:drift/drift.dart';
 
-@DataClassName("Country")
 class CountryTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text()();
