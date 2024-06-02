@@ -1,5 +1,4 @@
-import 'package:app/language/language_global_var.dart';
-import 'package:app/routes/app_pages.dart';
+import 'package:app/ui/components/common_menu.dart';
 import 'package:app/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,21 +10,6 @@ class SettingService extends GetxService {
   late final RxBool darkMode = Const.defaultDarkMode.obs;
   final navigationSelectedIndex = 0.obs;
   final ScrollController scrollController = ScrollController();
-
-  static List<NavigationItem> navigationItemIndex = [
-    NavigationItem(
-        route: Routes.home, icon: Icons.home, label: LanguageGlobalVar.home.tr),
-    NavigationItem(
-        route: Routes.inventory,
-        icon: Icons.folder_special,
-        label: LanguageGlobalVar.inventory.tr),
-    NavigationItem(
-        route: Routes.gemini, icon: Icons.import_contacts, label: 'Gemini'),
-    NavigationItem(
-        route: Routes.setting,
-        icon: Icons.settings,
-        label: LanguageGlobalVar.settings.tr),
-  ];
 
   Future<SettingService> init() async {
     await GetStorage.init();
@@ -49,15 +33,18 @@ class SettingService extends GetxService {
 
   void setNavigationSelectedIndex(int selectedIndex) {
     navigationSelectedIndex.value = selectedIndex;
-    Get.offAllNamed(navigationItemIndex[selectedIndex].route);
+    print(
+        'setNavigationSelectedIndex : ${CommonMenu.navigationItemIndex[selectedIndex]['route'] as String}');
+    Get.offAllNamed(
+        CommonMenu.navigationItemIndex[selectedIndex]['route'] as String);
   }
 
   void goTo(String route) {
-    for (int i = 0; i < navigationItemIndex.length; i++) {
-      var item = navigationItemIndex[i];
-      if (item.route == route) {
+    for (int i = 0; i < CommonMenu.navigationItemIndex.length; i++) {
+      var item = CommonMenu.navigationItemIndex[i];
+      if (item['route'] as String == route) {
         navigationSelectedIndex.value = i;
-        Get.offAllNamed(item.route);
+        Get.offAllNamed(route);
       }
     }
   }

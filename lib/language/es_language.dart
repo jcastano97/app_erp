@@ -20,5 +20,6 @@ class EsLanguage {
     LanguageGlobalVar.no: "No",
     LanguageGlobalVar.modules: "Modulos",
     LanguageGlobalVar.inventory: "Inventario",
+    LanguageGlobalVar.gemini: "Gemini",
   };
 }

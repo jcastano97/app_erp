@@ -17,4 +17,5 @@ class LanguageGlobalVar {
   static String no = "no";
   static String modules = "modules";
   static String inventory = "inventory";
+  static String gemini = "gemini";
 }

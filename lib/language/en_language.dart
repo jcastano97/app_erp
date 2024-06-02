@@ -19,5 +19,6 @@ class EnLanguage {
     LanguageGlobalVar.no: "No",
     LanguageGlobalVar.modules: "Modules",
     LanguageGlobalVar.inventory: "Inventory",
+    LanguageGlobalVar.gemini: "Gemini",
   };
 }

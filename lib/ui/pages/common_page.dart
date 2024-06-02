@@ -1,4 +1,5 @@
 import 'package:app/service/setting_service.dart';
+import 'package:app/ui/components/common_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,19 +11,6 @@ final class CommonPage extends StatelessWidget {
     _child = child;
   }
 
-  List<NavigationRailDestination> createDestinations() {
-    var destinations = <NavigationRailDestination>[];
-    for (NavigationItem item in SettingService.navigationItemIndex) {
-      var navigationRail = NavigationRailDestination(
-        icon: Icon(item.icon),
-        label: Text(item.label),
-      );
-      destinations.add(navigationRail);
-      continue;
-    }
-    return destinations;
-  }
-
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -30,17 +18,8 @@ final class CommonPage extends StatelessWidget {
       return Scaffold(
         body: Row(
           children: [
-            Obx(
-              () => SafeArea(
-                child: NavigationRail(
-                  extended: constraints.maxWidth >= 600,
-                  destinations: createDestinations(),
-                  selectedIndex: settingService.navigationSelectedIndex.value,
-                  onDestinationSelected: (value) {
-                    settingService.setNavigationSelectedIndex(value);
-                  },
-                ),
-              ),
+            CommonMenu(
+              constrainMaxWidth: constraints.maxWidth,
             ),
             Expanded(
               child: ConstrainedBox(
@@ -48,7 +27,7 @@ final class CommonPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   controller: settingService.scrollController,
                   physics: const ClampingScrollPhysics(),
-                  padding: const EdgeInsets.only(right: 15),
+                  padding: const EdgeInsets.all(15),
                   child: Container(
                     color: Theme.of(context).scaffoldBackgroundColor,
                     child: _child,
