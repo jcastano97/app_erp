@@ -1,9 +1,8 @@
 import 'package:app/controllers/splash_controller.dart';
 import 'package:app/language/language_global_var.dart';
+import 'package:app/ui/components/styled_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../components/styled_text.dart';
 
 class SplashPage extends GetView<SplashController> {
   const SplashPage({super.key});
@@ -21,9 +20,15 @@ class SplashPage extends GetView<SplashController> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  StyledText.displayLarge("Code AI Journey"),
-                  StyledText.headlineLarge(LanguageGlobalVar.version
-                      .trParams({'version': controller.version})),
+                  StyledText.displayLarge(
+                    LanguageGlobalVar.appName.tr,
+                    color: Colors.white,
+                  ),
+                  StyledText.headlineLarge(
+                    LanguageGlobalVar.version
+                        .trParams({'version': controller.version}),
+                    color: Colors.white,
+                  ),
                 ],
               ),
             ],

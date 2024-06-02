@@ -2,29 +2,38 @@ import 'package:flutter/material.dart';
 
 class StyledText extends StatelessWidget {
   final String text;
+  final Color? color;
   late final TextStyle? Function(BuildContext context)? getStyle;
 
-  StyledText.displayLarge(this.text, {super.key}) {
+  StyledText.displayLarge(this.text, {this.color, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.displayLarge;
+      return Theme.of(context).textTheme.displayLarge?.copyWith(
+            color: color ?? Theme.of(context).textTheme.displayLarge?.color,
+          );
     };
   }
 
-  StyledText.headlineLarge(this.text, {super.key}) {
+  StyledText.headlineLarge(this.text, {this.color, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.headlineLarge;
+      return Theme.of(context).textTheme.headlineLarge?.copyWith(
+            color: color ?? Theme.of(context).textTheme.headlineLarge?.color,
+          );
     };
   }
 
-  StyledText.titleLarge(this.text, {super.key}) {
+  StyledText.titleLarge(this.text, {this.color, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.titleLarge;
+      return Theme.of(context).textTheme.titleLarge?.copyWith(
+            color: color ?? Theme.of(context).textTheme.titleLarge?.color,
+          );
     };
   }
 
-  StyledText.labelLarge(this.text, {super.key}) {
+  StyledText.labelLarge(this.text, {this.color, super.key}) {
     getStyle = (context) {
-      return Theme.of(context).textTheme.labelLarge;
+      return Theme.of(context).textTheme.labelLarge?.copyWith(
+            color: color ?? Theme.of(context).textTheme.labelLarge?.color,
+          );
     };
   }
 

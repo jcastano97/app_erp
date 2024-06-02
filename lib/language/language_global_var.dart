@@ -1,4 +1,5 @@
 class LanguageGlobalVar {
+  static String appName = "app_name";
   static String version = "version";
   static String home = "home";
   static String product = "product";

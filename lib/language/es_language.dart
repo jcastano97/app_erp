@@ -2,6 +2,7 @@ import 'language_global_var.dart';
 
 class EsLanguage {
   Map<String, String> esLanguage = {
+    LanguageGlobalVar.appName: 'Code AI Journey',
     LanguageGlobalVar.version: 'Versión: @version',
     LanguageGlobalVar.home: "Inicio",
     LanguageGlobalVar.product: "Producto",
