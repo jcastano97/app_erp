@@ -21,5 +21,16 @@ class EsLanguage {
     LanguageGlobalVar.modules: "Modulos",
     LanguageGlobalVar.inventory: "Inventario",
     LanguageGlobalVar.gemini: "Gemini",
+    LanguageGlobalVar.name: "Nombre",
+    LanguageGlobalVar.description: "Descripción",
+    LanguageGlobalVar.quantity: "Cantidad",
+    LanguageGlobalVar.quantityFactor: "Factor de la cantidad",
+    LanguageGlobalVar.purchasePrice: "Precio de compra",
+    LanguageGlobalVar.sellPrice: "Precio de venta",
+    LanguageGlobalVar.currency: "Moneda",
+    LanguageGlobalVar.submit: "Enviar",
+    LanguageGlobalVar.perUnit: 'Por unidad',
+    LanguageGlobalVar.perG: 'Por gramos',
+    LanguageGlobalVar.perKG: 'Por kilo gramos',
   };
 }

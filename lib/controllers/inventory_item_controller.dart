@@ -60,6 +60,8 @@ class InventoryItemController extends GetxController {
   }
 
   void addData() async {
+    editInventoryItem.value = null;
+    isOpenForm.value = true;
     nameController.text = '';
     descriptionController.text = '';
     quantityController.text = '';
@@ -67,11 +69,11 @@ class InventoryItemController extends GetxController {
     purchasePriceController.text = '';
     sellPriceController.text = '';
     currencyPriceSelect.value = '';
-    editInventoryItem.value = null;
-    isOpenForm.value = true;
   }
 
   void editData(InventoryItemTableData inventoryItem) async {
+    editInventoryItem.value = inventoryItem;
+    isOpenForm.value = true;
     nameController.text = inventoryItem.name;
     descriptionController.text = inventoryItem.description ?? '';
     quantityController.text = inventoryItem.quantity.toString();
@@ -79,8 +81,6 @@ class InventoryItemController extends GetxController {
     purchasePriceController.text = inventoryItem.purchasePrice ?? '';
     sellPriceController.text = inventoryItem.sellPrice ?? '';
     currencyPriceSelect.value = inventoryItem.currencyPrice ?? '';
-    editInventoryItem.value = inventoryItem;
-    isOpenForm.value = true;
   }
 
   void deleteData(InventoryItemTableData inventoryItem) async {

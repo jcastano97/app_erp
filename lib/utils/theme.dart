@@ -115,7 +115,10 @@ class AppTheme {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyle(color: Colors.white70),
+      hintStyle: TextStyle(
+        color: Colors.white70,
+        fontWeight: FontWeight.w400,
+      ),
     ),
   );
 }

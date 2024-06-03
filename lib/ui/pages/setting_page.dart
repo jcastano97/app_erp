@@ -1,6 +1,6 @@
 import 'package:app/language/language_global_var.dart';
 import 'package:app/service/setting_service.dart';
-import 'package:app/ui/components/styled_text.dart';
+import 'package:app/ui/components/common/styled_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

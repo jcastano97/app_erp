@@ -1,13 +1,18 @@
 import 'package:app/controllers/inventory_item_controller.dart';
-import 'package:app/ui/components/styled_text.dart';
-import 'package:app/utils/form_util.dart';
+import 'package:app/language/language_global_var.dart';
+import 'package:app/ui/components/common/styled_select.dart';
+import 'package:app/ui/components/common/styled_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class InventoryItemForm extends StatelessWidget {
   final inventoryItemController = Get.find<InventoryItemController>();
-  final quantityFactorList = ['per_unit', 'per_g', 'per_kg'];
-  final currencyPriceList = ['cop', 'usd', 'eur'];
+  final quantityFactorList = [
+    LanguageGlobalVar.perUnit,
+    LanguageGlobalVar.perG,
+    LanguageGlobalVar.perKG
+  ];
+  final currencyPriceList = const ['cop', 'usd', 'eur'];
   final _formKey = GlobalKey<FormState>();
 
   void onSubmit() {
@@ -22,94 +27,61 @@ class InventoryItemForm extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: <Widget>[
-          StyledText.labelLarge("Name"),
-          TextFormField(
+          StyledTextField(
             controller: inventoryItemController.nameController,
-            decoration: InputDecoration(hintText: "Name"),
-            validator: FormUtil.validateRequired,
+            label: LanguageGlobalVar.name,
+            required: true,
           ),
           SizedBox(
             height: 20,
           ),
-          StyledText.labelLarge("Description"),
-          TextFormField(
+          StyledTextField(
             controller: inventoryItemController.descriptionController,
-            decoration: InputDecoration(hintText: "Description"),
+            label: LanguageGlobalVar.description,
           ),
           SizedBox(
             height: 20,
           ),
-          StyledText.labelLarge("Quantity"),
-          TextFormField(
+          StyledTextField(
             controller: inventoryItemController.quantityController,
-            decoration: InputDecoration(hintText: "Quantity"),
+            label: LanguageGlobalVar.quantity,
             keyboardType: TextInputType.number,
           ),
           SizedBox(
             height: 20,
           ),
-          StyledText.labelLarge("Quantity factor"),
-          Obx(() => DropdownButton<String>(
-                value: inventoryItemController.quantityFactorSelect.value != ''
-                    ? inventoryItemController.quantityFactorSelect.value
-                    : null,
-                icon: const Icon(Icons.arrow_downward),
-                onChanged: (String? value) {
-                  inventoryItemController.quantityFactorSelect.value =
-                      value ?? '';
-                },
-                items: quantityFactorList
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value.tr),
-                  );
-                }).toList(),
-              )),
+          StyledSelect(
+            controller: inventoryItemController.quantityFactorSelect,
+            label: LanguageGlobalVar.quantityFactor,
+            options: quantityFactorList,
+          ),
           SizedBox(
             height: 20,
           ),
-          StyledText.labelLarge("Purchase Price"),
-          TextFormField(
+          StyledTextField(
             controller: inventoryItemController.purchasePriceController,
-            decoration: InputDecoration(hintText: "Purchase Price"),
-            keyboardType: TextInputType.number,
+            label: LanguageGlobalVar.purchasePrice,
           ),
           SizedBox(
             height: 20,
           ),
-          StyledText.labelLarge("Sell Price"),
-          TextFormField(
+          StyledTextField(
             controller: inventoryItemController.sellPriceController,
-            decoration: InputDecoration(hintText: "Sell Price"),
-            keyboardType: TextInputType.number,
+            label: LanguageGlobalVar.sellPrice,
           ),
           SizedBox(
             height: 20,
           ),
-          StyledText.labelLarge("Currency"),
-          Obx(() => DropdownButton<String>(
-                value: inventoryItemController.currencyPriceSelect.value != ''
-                    ? inventoryItemController.currencyPriceSelect.value
-                    : null,
-                icon: const Icon(Icons.arrow_downward),
-                onChanged: (String? value) {
-                  inventoryItemController.currencyPriceSelect.value =
-                      value ?? '';
-                },
-                items: currencyPriceList
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              )),
+          StyledSelect(
+            controller: inventoryItemController.currencyPriceSelect,
+            label: LanguageGlobalVar.currency,
+            options: currencyPriceList,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
             child: ElevatedButton(
               onPressed: onSubmit,
-              child: const Text('Submit'),
+              child: Text(LanguageGlobalVar.submit.tr),
             ),
           ),
         ],

@@ -1,6 +1,6 @@
 import 'package:app/controllers/inventory_item_controller.dart';
+import 'package:app/ui/components/common/styled_text.dart';
 import 'package:app/ui/components/inventory/inventory_item_form.dart';
-import 'package:app/ui/components/styled_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,7 +1,7 @@
 import 'package:app/controllers/home/gemini_controller.dart';
 import 'package:app/service/gemini_service.dart';
-import 'package:app/ui/components/styled_card.dart';
-import 'package:app/ui/components/styled_text.dart';
+import 'package:app/ui/components/common/styled_card.dart';
+import 'package:app/ui/components/common/styled_text.dart';
 import 'package:app/ui/pages/common_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

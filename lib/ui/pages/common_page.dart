@@ -1,5 +1,5 @@
 import 'package:app/service/setting_service.dart';
-import 'package:app/ui/components/common_menu.dart';
+import 'package:app/ui/components/common/common_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
