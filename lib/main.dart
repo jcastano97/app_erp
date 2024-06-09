@@ -1,12 +1,15 @@
+import 'package:app/controllers/auth_controller.dart';
 import 'package:app/language/language.dart';
 import 'package:app/routes/app_pages.dart';
 import 'package:app/service/gemini_service.dart';
 import 'package:app/service/setting_service.dart';
 import 'package:app/utils/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'database/database.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   print("main");
@@ -14,8 +17,13 @@ Future<void> main() async {
   Get.put(await GeminiService().init());
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(AppDatabase());
-  SettingService settingsService = Get.find<SettingService>();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  Get.put(AuthController());
+
+  SettingService settingsService = Get.find<SettingService>();
   runApp(GetMaterialApp(
     title: 'App ERP',
     debugShowCheckedModeBanner: false,
