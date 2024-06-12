@@ -14,7 +14,7 @@ class AuthMiddleware extends GetMiddleware {
     if (user == null) {
       return Get.rootDelegate.toNamed(Routes.login);
     } else {
-      return Get.rootDelegate.toNamed(Routes.home);
+      return Get.rootDelegate.toNamed(Routes.smoke);
     }
   }
 

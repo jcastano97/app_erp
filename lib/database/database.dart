@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app/database/daos/inventory_item_dao.dart';
+import 'package:app/database/tables/smoke_table.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
@@ -8,6 +9,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqlite3/sqlite3.dart';
 import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 
+import 'daos/smoke_dao.dart';
 import 'tables/address_table.dart';
 import 'tables/api_method_table.dart';
 import 'tables/api_table.dart';
@@ -47,15 +49,17 @@ part 'database.g.dart';
   ProviderTable,
   RoleTable,
   UserTable,
-  ViewTable
+  ViewTable,
+  SmokeTable
 ], daos: [
   InventoryItemDao,
+  SmokeDao,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration {
@@ -89,6 +93,9 @@ class AppDatabase extends _$AppDatabase {
           await m.createTable(roleTable);
           await m.createTable(userTable);
           await m.createTable(viewTable);
+        }
+        if (from <= 3) {
+          await m.createTable(smokeTable);
         }
       },
       beforeOpen: (details) async {

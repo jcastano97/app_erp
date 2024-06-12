@@ -21,7 +21,7 @@ class SplashController extends GetxController with StateMixin<String> {
     try {
       await 1.delay();
       change("Continue splash", status: RxStatus.success());
-      Get.offAllNamed(Routes.home);
+      Get.offAllNamed(Routes.smoke);
     } catch (er) {
       change(null, status: RxStatus.error(er.toString()));
     }
